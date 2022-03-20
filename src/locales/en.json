@@ -1,0 +1,11 @@
+{
+  "login": "Log in/Register",
+  "registerFormHead": "Registration",
+  "loginFormHead": "Log In",
+  "emailForm": "Email",
+  "pass": "Password",
+  "confPass": "Confirm password",
+  "regButton": "Register",
+  "regQuestion": "Already registered?",
+  "logInLinkName": "Log in"
+}

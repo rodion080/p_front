@@ -1,0 +1,11 @@
+{
+  "login":"Anmeldung/Abmeldung",
+  "registerFormHead": "Registrierung",
+  "loginFormHead": "Anmeldung",
+  "emailForm":"Email",
+  "pass":"Passwort",
+  "confPass":"Passwort bestätigen",
+  "regButton": "Registrieren",
+  "regQuestion": "Schön registriert?",
+  "logInLinkName": "Anmelden"
+}

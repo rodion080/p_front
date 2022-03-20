@@ -1,0 +1,11 @@
+{
+  "login":"Войти/Зерегистрироваться",
+  "registerFormHead": "Регистрация",
+  "loginFormHead": "Вход",
+  "emailForm":"Email",
+  "pass":"Пароль",
+  "confPass":"Подтверждение пароля",
+  "regButton": "Регистрация",
+  "regQuestion": "Уже зарегистрированы?",
+  "logInLinkName": "Войти"
+}
