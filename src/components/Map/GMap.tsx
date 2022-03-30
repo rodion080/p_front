@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import GoogleMapReact from 'google-map-react';
+import { YMaps, Map, Placemark } from 'react-yandex-maps';
+// import GoogleMapReact from 'google-map-react';
+// import { Map, GoogleApiWrapper } from 'google-maps-react';
 // import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useActions } from '../../hooks/useActions';
+import loc from './loc3.png';
+
+// const { google } = window;
 
 const GMap = ({ main, error, loading }) => {
   // const { isAuth, message, token } = useTypedSelector((state) => state.auth);
@@ -10,7 +15,6 @@ const GMap = ({ main, error, loading }) => {
 
   useEffect(() => {
     fetchMain();
-    // console.log(isAuth, message, token);
   }, []);
 
   function getWheel() {
@@ -21,6 +25,7 @@ const GMap = ({ main, error, loading }) => {
     // 4. Not Logged in, exists , do you want to register and write one more review
   }
 
+  console.log(main, getWheel);
   if (loading) {
     return <h1>
             Loading...
@@ -33,23 +38,41 @@ const GMap = ({ main, error, loading }) => {
     </h1>;
   }
 
+  // eslint-disable-next-line no-unused-vars
   return (
     <div
-      className="gmap">
-      <GoogleMapReact
-        options={{
-          scrollwheel: insideMap,
-        }}
-        onClick={() => getWheel()}
-        bootstrapURLKeys={{ key: '' }}
-        defaultCenter={main.center}
-        defaultZoom={main.zoom}
+      className="gmap"
+      id="gmap"
+    >
+      <YMaps
       >
-        <div
-          className="gmap__point"
-        >Yalberg
+        <div>
+          <Map
+            className="gmap"
+            defaultState={{ center: [main.center.lat, main.center.lng], zoom: main.zoom }}>
+            <Placemark geometry={[main.center.lat, main.center.lng]}
+              options={{
+                iconLayout: 'default#image',
+                iconImageHref: loc,
+              }}
+            />
+          </Map>
         </div>
-      </GoogleMapReact>
+      </YMaps>
+      {/* <GoogleMapReact */}
+      {/*  options={{ */}
+      {/*    scrollwheel: insideMap, */}
+      {/*  }} */}
+      {/*  onClick={() => getWheel()} */}
+      {/*  bootstrapURLKeys={{ key: '' }} */}
+      {/*  defaultCenter={main.center} */}
+      {/*  defaultZoom={main.zoom} */}
+      {/* > */}
+      {/*  <div */}
+      {/*    className="gmap__point" */}
+      {/*  >Yalberg */}
+      {/*  </div> */}
+      {/* </GoogleMapReact> */}
 
     </div>
   );

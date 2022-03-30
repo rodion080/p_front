@@ -4,9 +4,6 @@ import Navbar from './components/UI/navbar/Navbar';
 import GMap from './components/Map/GMap';
 import { useTypedSelector } from './hooks/useTypedSelector';
 import { useActions } from './hooks/useActions';
-// import Modal from './components/UI/modal/Modal';
-// import LinkButton from './components/UI/button/LinkButton';
-// import Input from './components/UI/input/Input';
 import { locales } from './utils';
 
 import { LanguageContext } from './context';

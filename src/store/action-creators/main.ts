@@ -1,30 +1,38 @@
 import { Dispatch } from 'redux';
 // import axios from 'axios';
+import axios from 'axios';
 import { MainAction, MainActionTypes } from '../type/main';
 
 // eslint-disable-next-line import/prefer-default-export
 export const fetchMain = () => async (dispatch: Dispatch<MainAction>) => {
   try {
     dispatch({ type: MainActionTypes.FETCH_MAIN });
+    // const response = await axios(
+    const response = await axios.get('http://localhost:3042/location');
+
+    dispatch({
+      type: MainActionTypes.FETCH_MAIN_SUCCESS,
+      payload: response.data,
+    });
     // const response = await axios.get('https://jsonplaceholder.typicode.com/todos', {
     //   params: {
     //     _page: page,
     //     _limit: limit,
     //   },
     // });
-    setTimeout(() => {
-      dispatch({
-        type: MainActionTypes.FETCH_MAIN_SUCCESS,
-        payload: {
-          lang: 'RU',
-          center: {
-            lat: 59.870829,
-            lng: 30.392098,
-          },
-          zoom: 17,
-        },
-      });
-    }, 1000);
+    // setTimeout(() => {
+    //   dispatch({
+    //     type: MainActionTypes.FETCH_MAIN_SUCCESS,
+    //     payload: {
+    //       lang: 'RU',
+    //       center: {
+    //         lat: 59.870829,
+    //         lng: 30.392098,
+    //       },
+    //       zoom: 17,
+    //     },
+    //   });
+    // }, 1000);
   } catch (e) {
     dispatch({
       type: MainActionTypes.FETCH_MAIN_ERROR,

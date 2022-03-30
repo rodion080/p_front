@@ -10,7 +10,7 @@ interface Main {
 }
 
 export interface MainState {
-    main: Main;
+    main: Main | {};
     loading: boolean;
     error: null | string;
 }
